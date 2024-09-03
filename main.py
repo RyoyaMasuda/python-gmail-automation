@@ -44,7 +44,7 @@ def MailText(Name):
 
 if __name__ == '__main__':
     #データの読み込み
-    file = 'addresslist.csv'  #パスを相対パスで指定
+    file = 'sample.csv'  #パスを相対パスで指定
     with open(file, 'r') as f:
         date = csv.reader(f)
         header = next(date)  #ヘッダーの読み込み
