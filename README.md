@@ -9,7 +9,7 @@ PythonでGmailを1件1件一斉送信するスクリプト
 [2段階認証プロセスを有効にする](https://support.google.com/accounts/answer/185839?hl=ja&co=GENIE.Platform%3DDesktop&oco=0)を参照し、2段階認証を設定してください。
 
 ## Googleアプリパスワードの設定
-[アプリ パスワードを作成、管理する](https://myaccount.google.com/apppasswords)を参照し、Googleアプリパスワードを作成してください。 
+[アプリ パスワードを作成、管理する](https://myaccount.google.com/apppasswords)を参照し、Googleアプリパスワードを作成してください。<br>
 ※16桁のパスワードは一度しか表示されないので注意してください。
 
 # 使用方法
