@@ -2,6 +2,8 @@ import smtplib  # SMTPサーバーとの通信を行うためのモジュール
 import csv  
 from email.mime.text import MIMEText  # メール本文を作成するためのモジュール
 import os
+import pandas as pd
+from IPython.display import display
 
 from dotenv import load_dotenv
 
@@ -35,28 +37,38 @@ class Send():
         smtp.close()  # SMTPセッションを終了
 
 # メール本文を生成する関数
-def MailText(Name):
+def MailText(last_name, first_name, company_name, position):
     with open('mail.txt', 'r') as f:
         content = f.read()  # テキストファイルからメールのテンプレートを読み込み
 
-    text = content.format(Name=Name)  # テンプレートに名前を挿入
+    text = content.format(last_name=last_name,
+                          first_name=first_name,
+                          company_name=company_name,
+                          position=position)  # テンプレートに名前を挿入
+    
     return text  # メール本文を返す
 
 if __name__ == '__main__':
     # CSVファイルからデータを読み込む
     file = 'sample.csv'  # 読み込むCSVファイルのパス
-    with open(file, 'r') as f:
-        date = csv.reader(f)  # CSVファイルを読み込む
-        header = next(date)  # CSVファイルのヘッダーを読み飛ばす
+    # with open(file, 'r') as f:
+    #     date = csv.reader(f)  # CSVファイルを読み込む
+    #     header = next(date)  # CSVファイルのヘッダーを読み飛ばす
+    df = pd.read_csv(file)
 
-        for row in date:
-            # CSVの各行から名前とメールアドレスを取得
-            Name = row[0]  # 名前
-            Email = row[1]  # メールアドレス
 
-            # メール送信の設定
-            AddressTo = Email  # 受信者のメールアドレス
-            subject = "test送信"  # メールの件名
-            text = MailText(Name)
-            mailer = Send(AddressTo, subject, text)
-            mailer.send()
+    for _idx, row in df.iterrows():
+        # CSVの各行から名前とメールアドレスを取得
+        # Name = row[0]  # 名前
+        Email = row['メールアドレス']  # メールアドレス
+        company_name = row['会社・組織名']
+        first_name = row['氏名（名）']
+        last_name = row['氏名（姓）']
+        position = row['役職']
+
+        # メール送信の設定
+        AddressTo = Email  # 受信者のメールアドレス
+        subject = "test送信"  # メールの件名
+        text = MailText(last_name, first_name, company_name, position)
+        mailer = Send(AddressTo, subject, text)
+        mailer.send()
