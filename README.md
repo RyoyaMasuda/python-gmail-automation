@@ -21,12 +21,12 @@ PythonでGmailを1件1件一斉送信するスクリプト
    3. ```pip install -r requirements.txt```でライブラリをインストールします。
 4. `.env.template`の名前を変更して`.env`にします。
 5. `.env`ファイルの`GMAIL_ADDRESS=`に自分のGmailアドレス、`GOOGLE_APP_PASSWORD=`に先ほど設定したGoogleアプリパスワードを入力します。(クオテーションは不要)
-6. sample.csvファイルの編集
-   1. 1行目(header)は`名前`と`メールアドレス`にします。
-   2. 2行目以降名前とメールアドレスを記載してください。
+6. sample.csv.templateファイルの編集
+   1. `sample.csv.template`の名前を`sample.csv`に変更してください。
+   2. 1行目(カラム)に沿って2行目以降を入力してください。
    3. `sample.csv`の名前を変更する場合は`main.py`の中にある`file = 'sample.csv'` (`if __name__ == '__main__'`のすぐ下)もファイル名に合わせて変更してください。(自分でcsvファイルを作成してアップロードする場合を想定しています。) 
 7. mail.txtの編集
-   1. {Name}はsample.csvファイルに記載された名前が入力されるので{Name}以外の部分を変更してください。
+   - {変数名}はsample.csvファイルに記載された各カラムの情報が入力されるので{変数名}以外の部分を変更してください。
 8. ターミナルから```python main.py```で実行してください。
 9.  メールが届いているか確認してください。
-10. 使用後はターミナルで`deactivate`と入力し、(.venv)が消えたことを確認してください。 
+10. 使用後はターミナルで`deactivate`と入力し、`(.venv)`が消えたことを確認してください。 
