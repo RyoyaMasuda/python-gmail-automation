@@ -3,8 +3,8 @@ from email.mime.text import MIMEText  # メール本文を作成するための�
 import os
 import sys
 import yaml
-from pprint import pprint
 import pandas as pd
+from tqdm import tqdm
 
 from dotenv import load_dotenv
 
@@ -80,7 +80,8 @@ if __name__ == '__main__':
     # CSVファイルからデータを読み込む
     df = pd.read_csv(address_list_path)
 
-    for _idx, row in df.iterrows():
+    for _idx, row in tqdm(df.iterrows()):
+
         # CSVの各行から名前とメールアドレスを取得
         # Name = row[0]  # 名前
         Email = row['メールアドレス']  # メールアドレス
@@ -95,4 +96,5 @@ if __name__ == '__main__':
         text = MailText(last_name, first_name, company_name, position, mail_text_path)
         
         mailer = Send(AddressTo, subject, text, cc_list)
+
         mailer.send()
