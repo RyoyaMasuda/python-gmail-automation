@@ -25,13 +25,13 @@ cd python-gmail-automation
    3. ```pip install -r requirements.txt```でライブラリをインストールします。
 5. `.env.template`の名前を変更して`.env`にします。
 6. `.env`ファイルの`GMAIL_ADDRESS=`に自分のGmailアドレス、`GOOGLE_APP_PASSWORD=`に先ほど設定したGoogleアプリパスワードを入力します。(クオテーションは不要)
-7. sample.csv.templateファイルの編集
+7. `sample.csv.template`ファイル(名前やアドレスが記載されているファイル)の編集
    1. `sample.csv.template`のファイル名を変更し、`お好きな名前.csv`に変更してください。(一旦ここでは`test.csv`としておきます。)
    2. 1行目(カラム)に沿って2行目以降を入力してください。
-8.  `sample.txt`の編集
+8.  `sample.txt`ファイルの編集(メール本文が記載されているファイル)
     1. `sample.txt`の名前を編集し`お好きな名前.txt`に変更してください。(一旦ここでは`test.txt`としておきます。)
     2. {変数名}は`test.csv`ファイルに記載された各カラムの情報が入力されるので{変数名}以外の部分を変更してください。
-9.  `sample.yaml`の編集
+9.  `sample.yaml`ファイルの編集(設定ファイル)
     1.  `sample.yaml`の名前を編集し`お好きな名前.yaml`に変更してください。(一旦ここでは`test.yaml`としておきます。)
     2.  `test.yaml`を編集し、各valueを変更してください
         - `subject`はメールの本文です。(文字列で指定してください。)
