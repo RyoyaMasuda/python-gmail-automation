@@ -1,0 +1,12 @@
+{company_name}
+{last_name}{first_name}{position}
+
+お世話になります。
+株式会社hogehogeのmogeと申します。
+
+先日はありがとうございました。
+{last_name}様のビジネスに貢献してまいりたいと思います。。
+よろしくお願いいたします。
+
+株式会社hogehoge
+moge

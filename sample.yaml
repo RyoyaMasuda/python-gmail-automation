@@ -1,0 +1,7 @@
+subject: "テスト送信"
+address_list_path: "./sample.csv" 
+mail_text_path: "./sample.txt"
+cc_list:
+  - "despocampi.foot@gmail.com"
+  - "ryouya_masuda@unirita.co.jp"
+  - "ryoya.masuda@mare-key.ai"
