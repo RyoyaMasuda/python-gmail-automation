@@ -26,22 +26,22 @@ cd python-gmail-automation
 5. `.env.template`の名前を変更して`.env`にします。
 6. `.env`ファイルの`GMAIL_ADDRESS=`に自分のGmailアドレス、`GOOGLE_APP_PASSWORD=`に先ほど設定したGoogleアプリパスワードを入力します。(クオテーションは不要)
 7. `sample.csv.template`ファイル(名前やアドレスが記載されているファイル)の編集
-   1. `sample.csv.template`のファイル名を変更し、`お好きな名前.csv`に変更してください。(一旦ここでは`test.csv`としておきます。)
+   1. `sample.csv.template`のファイル名を変更し、`お好きな名前.csv`に変更してください。(一旦ここでは`test_address.csv`としておきます。)
    2. 1行目(カラム)に沿って2行目以降を入力してください。
 8.  `sample.txt`ファイルの編集(メール本文が記載されているファイル)
-    1. `sample.txt`の名前を編集し`お好きな名前.txt`に変更してください。(一旦ここでは`test.txt`としておきます。)
-    2. {変数名}は`test.csv`ファイルに記載された各カラムの情報が入力されるので{変数名}以外の部分を変更してください。
+    1. `sample.txt`の名前を編集し`お好きな名前.txt`に変更してください。(一旦ここでは`test_mail_text.txt`としておきます。)
+    2. {変数名}は`test_address.csv`ファイルに記載された各カラムの情報が入力されるので{変数名}以外の部分を変更してください。
 9.  `sample.yaml`ファイルの編集(設定ファイル)
-    1.  `sample.yaml`の名前を編集し`お好きな名前.yaml`に変更してください。(一旦ここでは`test.yaml`としておきます。)
-    2.  `test.yaml`を編集し、各valueを変更してください
+    1.  `sample.yaml`の名前を編集し`お好きな名前.yaml`に変更してください。(一旦ここでは`test_setting.yaml`としておきます。)
+    2.  `test_setting.yaml`を編集し、各valueを変更してください
         - `subject`はメールの本文です。(文字列で指定してください。)
-        - `address_list_path`はアドレスリストのpathです。(`./test.csv`のように文字列で指定してください。)
-        - `mail_text_path`はアドレスリストのpathです。(`./test.txt`のように文字列で指定してください。)
+        - `address_list_path`はアドレスリストのpathです。(`./test_address.csv`のように文字列で指定してください。)
+        - `mail_text_path`はアドレスリストのpathです。(`./test_mail_text.txt`のように文字列で指定してください。)
         - `cc_list`はccに追加するメールアドレスです。(複数ある場合は`- `のあとに文字列で1つずつ文字列で記載してください。)
 10. `sample.sh`の編集
     1.  `sample.sh`の名前を編集し`お好きな名前.sh`に変更してください。(一旦ここでは`test.sh`としておきます。)
-    2.  `test.sh`内の`python main.py`の後に編集したyamlファイル名を指定してください。(例: `python main.py test.yaml`)
-        - 実行時はソース内で指定したコマンドライン引数(yamlファイル)を読み込みます。`test.yaml`を指定した場合は`test.yaml`の情報が読み込まれ、その情報に沿って実行されます。  
+    2.  `test.sh`内の`python main.py`の後に編集したyamlファイル名を指定してください。(例: `python main.py test_setting.yaml`)
+        - 実行時はソース内で指定したコマンドライン引数(yamlファイル)を読み込みます。`test.yaml`を指定した場合は`test_setting.yaml`の情報が読み込まれ、その情報に沿って実行されます。  
 11.  ターミナルから```source test.sh```で実行してください。
 12.  メールが届いているか確認してください。
 13.  使用後はターミナルで`deactivate`と入力し、`(.venv)`が消えたことを確認してください。 
