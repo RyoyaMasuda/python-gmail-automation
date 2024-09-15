@@ -18,11 +18,11 @@ PythonでGmailを1件1件一斉送信するスクリプト
 ```bash
 cd python-gmail-automation
 ```
-3. Pythonの環境を3.9.6に設定します。([Pyenv](https://github.com/pyenv/pyenv)等のバージョン管理ツールを使用することをお勧めします。)
-4. 仮想環境の立ち上げ
-   1. ```python -m venv .venv```で仮想環境を立ち上げます。
-   2. ```source .venv/bin/activate```で仮想環境の有効化→ターミナルのプロンプトの横に`(.venv)`と表示されているか確認します。
-   3. ```pip install -r requirements.txt```でライブラリをインストールします。
+3. ~~Pythonの環境を3.9.6に設定します。([Pyenv](https://github.com/pyenv/pyenv)等のバージョン管理ツールを使用することをお勧めします。)~~
+4. ~~仮想環境の立ち上げ~~
+   1. ~~```python -m venv .venv```で仮想環境を立ち上げます。~~
+   2. ~~```source .venv/bin/activate```で仮想環境の有効化→ターミナルのプロンプトの横に`(.venv)`と表示されているか確認します。~~
+   3. ~~```pip install -r requirements.txt```でライブラリをインストールします。~~
 5. `.env.template`の名前を変更して`.env`にします。
 6. `.env`ファイルの`GMAIL_ADDRESS=`に自分のGmailアドレス、`GOOGLE_APP_PASSWORD=`に先ほど設定したGoogleアプリパスワードを入力します。(クオテーションは不要)
 7. `sample.csv.template`ファイル(名前やアドレスが記載されているファイル)の編集
@@ -41,7 +41,15 @@ cd python-gmail-automation
 10. `sample.sh`の編集
     1.  `sample.sh`の名前を編集し`お好きな名前.sh`に変更してください。(一旦ここでは`test.sh`としておきます。)
     2.  `test.sh`内の`python main.py`の後に編集したyamlファイル名を指定してください。(例: `python main.py test_setting.yaml`)
-        - 実行時はソース内で指定したコマンドライン引数(yamlファイル)を読み込みます。`test.yaml`を指定した場合は`test_setting.yaml`の情報が読み込まれ、その情報に沿って実行されます。  
-11.  ターミナルから```source test.sh```で実行してください。
-12.  メールが届いているか確認してください。
-13.  使用後はターミナルで`deactivate`と入力し、`(.venv)`が消えたことを確認してください。 
+        - 実行時はソース内で指定したコマンドライン引数(yamlファイル)を読み込みます。`test.yaml`を指定した場合は`test_setting.yaml`の情報が読み込まれ、その情報に沿って実行されます。
+11. dockerコンテナの立ち上げd
+    1.  `docker build -t gmail-automation`でイメージをビルドしてください。
+    2.  `docker run -it gmail-automation /bin/bash`でコンテナに入ってください。
+    3.  コンテナ内のターミナルから```source test.sh```で実行してください。
+12. メールが届いているか確認してください。
+13. ~~使用後はターミナルで`deactivate`と入力し、`(.venv)`が消えたことを確認してください。~~
+14. 使用後はコンテナ内のターミナルで`exit`を実行し、コンテナから抜けてください。
+15. イメージを削除する場合
+    1.  `docker image ls`でイメージ一覧を表示します。
+    2.  削除したいイメージのIMAGE IDをコピーします。
+    3.  `docker rmi <IMAGE ID>`の`<IMAGE ID>`の部分にペーストして実行してください。
