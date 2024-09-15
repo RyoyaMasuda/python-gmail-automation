@@ -55,5 +55,4 @@ cd python-gmail-automation
     3.  `docker rmi <IMAGE ID>`の`<IMAGE ID>`の部分にペーストして実行してください。
 
 # 補足
-pyenvとvenvを使用した方法だとosよってはエラーがでる。(wsl2のubuntu20.04環境ではエラーが出ないがmacosだとエラーが出た。)
-そのためdockerを使用することにした。
+pyenvとvenvを使用した方法だとosよってはエラーがでる。(wsl2のubuntu20.04環境ではエラーが出ないがmacosだとエラーが出た。)<br>そのためdockerを使用することにした。
