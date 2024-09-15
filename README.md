@@ -53,3 +53,7 @@ cd python-gmail-automation
     1.  `docker image ls`でイメージ一覧を表示します。
     2.  削除したいイメージのIMAGE IDをコピーします。
     3.  `docker rmi <IMAGE ID>`の`<IMAGE ID>`の部分にペーストして実行してください。
+
+# 補足
+pyenvとvenvを使用した方法だとosよってはエラーがでる。(wsl2のubuntu20.04環境ではエラーが出ないがmacosだとエラーが出た。)
+そのためdockerを使用することにした。
