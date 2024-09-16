@@ -57,15 +57,14 @@ class Send():
         smtp.close()  # SMTPセッションを終了
 
 # メール本文を生成する関数
-def MailText(last_name, first_name, company_name, position, mail_text_path):
+def MailText(last_name, first_name, company_name, mail_text_path):
 
     with open(mail_text_path, 'r') as f:
         content = f.read()  # テキストファイルからメールのテンプレートを読み込み
 
     text = content.format(last_name=last_name,
                           first_name=first_name,
-                          company_name=company_name,
-                          position=position)  # テンプレートに名前を挿入
+                          company_name=company_name,)  # テンプレートに名前を挿入
     
     return text  # メール本文を返す
 
@@ -83,17 +82,15 @@ if __name__ == '__main__':
     for _idx, row in tqdm(df.iterrows()):
 
         # CSVの各行から名前とメールアドレスを取得
-        # Name = row[0]  # 名前
         Email = row['メールアドレス']  # メールアドレス
         company_name = row['会社・組織名']
         first_name = row['氏名（名）']
         last_name = row['氏名（姓）']
-        position = row['役職']
 
         # メール送信の設定
         AddressTo = Email  # 受信者のメールアドレス
 
-        text = MailText(last_name, first_name, company_name, position, mail_text_path)
+        text = MailText(last_name, first_name, company_name, mail_text_path)
         
         mailer = Send(AddressTo, subject, text, cc_list)
 
