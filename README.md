@@ -53,7 +53,7 @@ cd python-gmail-automation
     1.  `docker image ls`でイメージ一覧を表示します。
     2.  削除したいイメージのIMAGE IDをコピーします。
     3.  `docker rmi <IMAGE ID>`の`<IMAGE ID>`の部分にペーストして実行してください。
-    4.  `Error response from daemon: conflict: unable to delete 66955f5cfc09 (must be forced) - image is being used by stopped container c561e600cc9d`等のエラーが出た場合、`docker rm c561e600cc9d`等のコマンドでコンテナを削除してから「3.」を実行してください。
+    4.  `Error response from daemon: conflict: unable to delete 66955f5cfc09 (must be forced) - image is being used by stopped container c561e600cc9d`等のエラーが出た場合、`docker rm c561e600cc9d`等のコマンドでコンテナを削除してから「iii.」を実行してください。
 
 # 補足
 pyenvとvenvを使用した方法だとosよってはエラーがでる。(wsl2のubuntu20.04環境ではエラーが出ないがmacosだとエラーが出た。)<br>そのためdockerを使用することにした。
