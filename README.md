@@ -43,7 +43,7 @@ cd python-gmail-automation
     2.  `test.sh`内の`python main.py`の後に編集したyamlファイル名を指定してください。(例: `python main.py test_setting.yaml`)
         - 実行時はソース内で指定したコマンドライン引数(yamlファイル)を読み込みます。`test.yaml`を指定した場合は`test_setting.yaml`の情報が読み込まれ、その情報に沿って実行されます。
 11. dockerコンテナの立ち上げd
-    1.  `docker build -t gmail-automation`でイメージをビルドしてください。
+    1.  `docker build -t gmail-automation .`でイメージをビルドしてください。
     2.  `docker run -it gmail-automation /bin/bash`でコンテナに入ってください。
     3.  コンテナ内のターミナルから```source test.sh```で実行してください。
 12. メールが届いているか確認してください。
